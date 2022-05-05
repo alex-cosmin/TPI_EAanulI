@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Introduceti prima coordonata x1:</p>
+    <input type="text" id="prima-coordonata-x1" value="" />
+    <p>Introduceti prima coordonata y1:</p>
+    <input type="text" id="prima-coordonata-y1" value="" />
+    <p>Introduceti a doua coordonata x2:</p>
+    <input type="text" id="adoua-coordonata-x2" value="" />
+    <p>Introduceti a doua  coordonata y1:</p>
+    <input type="text" id="adoua-coordonata-y2" value="" />
+    <button onclick="getDistance()">Calculeaza Distanta</button>
+    <p>Afiseaz rezultatul:<span id="rezultat"></span></p>
+    <script>
+        function getDistance() {
+            let x1 = document.getElementById("prima-coordonata-x1").value;
+            let y1 = document.getElementById("prima-coordonata-y1").value;
+            let x2 = document.getElementById("adoua-coordonata-x2").value;
+            let y2 = document.getElementById("adoua-coordonata-y2").value;
+
+            let y = x2 - x1;
+            let x = y2 - y1;
+
+            let rezultat = Math.sqrt(x * x + y * y);
+            document.getElementById("rezultat").innerHTML = rezultat;
+        }
+    </script>
+</body>
+</html>
