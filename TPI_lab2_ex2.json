@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .clasa-eroare {
+            display: none;
+        }
+        #error,#error2 {
+            color: red;
+        }
+        #limita {
+            display: none;
+            color: white;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Introduceti un numar intre 10 si 100:</p>
+    <input type="text" id="numar" value="" onchange="citireNumere()" />
+    <span class="clasa-eroare" id="error">Numarul trebuie sa fie intre 10 si 100</span>
+    <span class="clasa-eroare" id="error2">Numarul trebuie sa fie numar</span>
+    <p>Afiseaza Numerele care nu sunt duplicate:<span id="numere"></span></p>
+    <p id="limita">S-a atins limita de 20 de numere</p>
+    <script>
+        function citireNumere() {
+            let x = document.getElementById("numar").value;
+
+            console.log(typeof x);
+            if (!isNaN(x)) {
+                const y = parseInt(x)
+                if (y <= 9 || y >= 101) {
+                    document.getElementById("error").style.display = "block";
+                } else {
+                    addingNumber(y);
+                    document.getElementById("error").style.display = "none";
+                    document.getElementById("error2").style.display = "none";
+                }
+            } else {
+                document.getElementById("error2").style.display = "block";
+            }
+        }
+        var vector = [];
+        function addingNumber(x) {
+            if (vector.indexOf(x) == -1) {
+                if (vector.length <= 20) {
+                    vector.push(x);
+                } else {
+                    document.getElementById("limita").style.display = "block";
+                }
+            }
+            document.getElementById("numere").innerText = vector;
+        }
+    </script>
+
+</body>
+</html>
